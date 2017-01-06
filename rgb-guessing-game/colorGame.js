@@ -18,6 +18,7 @@ function initialize(installEventListeners) {
         }
     }
     document.querySelector("#resetButton").textContent = "New Colors";
+    changeColor(document.querySelector("h1"), "steelblue");
 }
 
 function getRandomColors(numberOfColors) {
@@ -81,7 +82,7 @@ function clickedRightColor(clickedSquare) {
     var messageDisplay = document.querySelector("#messageDisplay");
     messageDisplay.textContent = "Correct!";
     document.querySelector("#resetButton").textContent = "Play Again?";
-    changeAllSquaresToColor(clickedSquare.style.background);
+    changeAllColors(clickedSquare.style.background);
 }
 
 function clickedWrongColor(clickedSquare) {
@@ -110,19 +111,16 @@ function selectDifficultyButton(buttonToSelect) {
 // ------------------------------------------------------------------
 
 // Util -------------------------------------------------------------
-function changeAllSquaresToColor(color) {
-    var squares = getAllSquares();
+function changeAllColors(color) {
+    changeColor(document.querySelector("h1"), color);
+    var squares = document.querySelectorAll(".square");
     for (var i = 0; i < squares.length; i++) {
         changeColor(squares[i], color);
     }
 }
 
-function changeColor(square, color) {
-    square.style.background = color;
-}
-
-function getAllSquares() {
-    return document.querySelectorAll(".square");
+function changeColor(element, color) {
+    element.style.background = color;
 }
 
 function setDifficulty(difficulty) {
