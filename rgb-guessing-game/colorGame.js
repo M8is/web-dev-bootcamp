@@ -14,7 +14,9 @@ function initialize(installEventListeners) {
         document.querySelector("#resetButton").addEventListener("click", clickedReset);
         var difficultyButtons = document.querySelectorAll(".difficultyBtn");
         for (var i = 0; i < difficultyButtons.length; i++) {
-            difficultyButtons[i].addEventListener("click", function() { clickedDifficultySetting(this); })
+            difficultyButtons[i].addEventListener("click", function() {
+                clickedDifficultySetting(this);
+            })
         }
     }
     document.querySelector("#resetButton").textContent = "New Colors";
@@ -64,7 +66,9 @@ function createSquares(colors) {
 function initializeSquare(square, color) {
     square.classList.add("square");
     changeColor(square, color);
-    square.addEventListener("click", function() { clickedSquare(this) });
+    square.addEventListener("click", function() {
+        clickedSquare(this)
+    });
 }
 // ------------------------------------------------------------------
 
